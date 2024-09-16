@@ -1,8 +1,30 @@
 import json
 import urllib.parse
 import qrcode
+from asyncua.sync import Client, ua
 
-def create_url(id, cycle_counter, packml_state, good_products, bad_products):
+def read_node(client, node_name):
+    node = client.get_node(node_name)
+    return node.read_value()
+
+def retrieve_plc_data():
+    ip = "localhost"
+    port = 4840
+    username = "Admin"
+    password = "password"
+    url = f"opc.tcp://{username}:{password}@{ip}:{port}/"
+    client = Client(url=url)
+    client.connect()
+    id = read_node(client, "ns=6;s=::Logic:id")
+    cycle_counter = read_node(client, "ns=6;s=::Logic:cycleCounter")
+    good_products = read_node(client, "ns=6;s=::Logic:goodProducts")
+    bad_products = read_node(client, "ns=6;s=::Logic:badProducts")
+    packml_state = read_node(client, "ns=6;s=::Logic:packMLState")
+    client.disconnect()
+    return id, cycle_counter, packml_state, good_products, bad_products
+
+def create_url():
+    id, cycle_counter, packml_state, good_products, bad_products = retrieve_plc_data()
     payload = {
         "id": id, 
         "cycle_counter": cycle_counter,
@@ -41,6 +63,5 @@ def generate_qr_code(url, output_file):
     img.save(output_file)
     print(f"QR code saved as {output_file}")
     
-
-url = create_url("MACHINE-5", 114443, "STOPPING", 455, 12)
+url = create_url()
 generate_qr_code(url, 'qr_code.png')
