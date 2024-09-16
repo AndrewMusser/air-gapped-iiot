@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .message {
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        #machine-id {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        pre {
+            background-color: #efefef;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            word-wrap: break-word;
+            text-align: left; /* Add this line to left-align the text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PNG Image -->
+        <img src="logo.png" alt="Logo or Image" id="top-image">
+        
+        <!-- Message -->
+        <div id="message1" class="message">You have successfully pushed IIoT data for the following machine up to our secure servers:</div>
+        <div id="machine-id" class="message">MACHINE-5422</div>
+        <div id="message3" class="message">Here is the machine data payload that was received:</div>
+        
+        <!-- JSON Display -->
+        <pre id="json-payload">No data found.</pre>
+    </div>
+
+    <!-- External JS File -->
+    <script src="script.js"></script>
+</body>
+</html>
