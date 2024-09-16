@@ -1,0 +1,7 @@
+VAR
+	id : STRING[80];
+	cycleCounter : UDINT;
+	goodProducts : UDINT;
+	badProducts : UDINT;
+	packMLState : STRING[80];
+END_VAR

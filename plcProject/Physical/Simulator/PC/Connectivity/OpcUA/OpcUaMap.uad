@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="J4.93">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Everyone" Access="0x005F" />
+        <ACE RoleName="Administrators" Access="0x017F" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView AclId="1">
+    <Module Name="&lt;Default&gt;">
+      <Task Name="Logic">
+        <Variable Name="badProducts" />
+        <Variable Name="cycleCounter" />
+        <Variable Name="goodProducts" />
+        <Variable Name="id" />
+        <Variable Name="packMLState" />
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>
